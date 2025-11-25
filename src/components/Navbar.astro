@@ -1,0 +1,268 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <!-- Logo y Título -->
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <figure
+          class="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110"
+        >
+          <Image
+            src={logo}
+            alt="Ceco Logo"
+            width={50}
+            height={50}
+            class="w-full h-full object-contain"
+          />
+        </figure>
+        <h1
+          class="text-xl md:text-2xl font-bold bg-[#8CC63F] bg-clip-text text-transparent"
+        >
+          CECO
+        </h1>
+      </div>
+
+      <!-- Menú Desktop -->
+      <ul class="hidden lg:flex items-center gap-1">
+        <li
+          class="px-4 py-2 rounded-lg text-gray-700 font-medium hover:bg-green-50 hover:text-green-600 cursor-pointer transition-all duration-300 relative group"
+        >
+          <span>Inicio</span>
+          <span
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-600 group-hover:w-3/4 transition-all duration-300"
+          ></span>
+        </li>
+        <li
+          class="px-4 py-2 rounded-lg text-gray-700 font-medium hover:bg-green-50 hover:text-green-600 cursor-pointer transition-all duration-300 relative group"
+        >
+          <span>Sobre Nosotros</span>
+          <span
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-600 group-hover:w-3/4 transition-all duration-300"
+          ></span>
+        </li>
+        <li
+          class="px-4 py-2 rounded-lg text-gray-700 font-medium hover:bg-green-50 hover:text-green-600 cursor-pointer transition-all duration-300 relative group"
+        >
+          <span>Academia</span>
+          <span
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-600 group-hover:w-3/4 transition-all duration-300"
+          ></span>
+        </li>
+        <li
+          class="px-4 py-2 rounded-lg text-gray-700 font-medium hover:bg-green-50 hover:text-green-600 cursor-pointer transition-all duration-300 relative group"
+        >
+          <span>Admisiones</span>
+          <span
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-600 group-hover:w-3/4 transition-all duration-300"
+          ></span>
+        </li>
+        <li class="ml-2">
+          <button
+            class="px-5 py-2.5 bg-gradient-to-r bg-[#8CC63F] text-black font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            Contacto
+          </button>
+        </li>
+      </ul>
+
+      <!-- Botón Hamburguesa Mejorado -->
+      <button
+        id="hamburger"
+        class="lg:hidden flex flex-col gap-1.5 w-10 h-10 justify-center items-center rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+        aria-label="Menú"
+      >
+        <span
+          class="block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
+        ></span>
+        <span
+          class="block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
+        ></span>
+        <span
+          class="block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
+        ></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú Mobile Mejorado -->
+  <div
+    id="mobileMenu"
+    class="lg:hidden hidden fixed inset-0 top-16 md:top-20 bg-black/20 backdrop-blur-sm z-40"
+  >
+    <div class="bg-white h-full shadow-2xl animate-slide-in">
+      <ul class="flex flex-col p-4 gap-2">
+        <li
+          class="px-5 py-4 rounded-xl text-gray-700 font-medium hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-600 cursor-pointer transition-all duration-300 border border-transparent hover:border-green-200"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              ></path>
+            </svg>
+            <span>Inicio</span>
+          </div>
+        </li>
+        <li
+          class="px-5 py-4 rounded-xl text-gray-700 font-medium hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-600 cursor-pointer transition-all duration-300 border border-transparent hover:border-green-200"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+            <span>Sobre Nosotros</span>
+          </div>
+        </li>
+        <li
+          class="px-5 py-4 rounded-xl text-gray-700 font-medium hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-600 cursor-pointer transition-all duration-300 border border-transparent hover:border-green-200"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              ></path>
+            </svg>
+            <span>Academia</span>
+          </div>
+        </li>
+        <li
+          class="px-5 py-4 rounded-xl text-gray-700 font-medium hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-600 cursor-pointer transition-all duration-300 border border-transparent hover:border-green-200"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+            <span>Admisiones</span>
+          </div>
+        </li>
+        <li class="mt-4 px-5">
+          <button
+            class="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            <span>Contacto</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Espaciador para compensar el navbar fixed -->
+<div class="h-16 md:h-20"></div>
+
+<style>
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburger?.addEventListener("click", () => {
+    const isOpen = mobileMenu?.classList.contains("hidden");
+
+    if (isOpen) {
+      mobileMenu?.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // Prevenir scroll
+    } else {
+      mobileMenu?.classList.add("hidden");
+      document.body.style.overflow = ""; // Restaurar scroll
+    }
+
+    // Animación del icono hamburguesa a X
+    const spans = hamburger.querySelectorAll("span");
+    if (isOpen) {
+      spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+      spans[1].style.opacity = "0";
+      spans[1].style.transform = "translateX(20px)";
+      spans[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
+    } else {
+      spans[0].style.transform = "none";
+      spans[1].style.opacity = "1";
+      spans[1].style.transform = "none";
+      spans[2].style.transform = "none";
+    }
+  });
+
+  // Cerrar menú al hacer click fuera
+  mobileMenu?.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.add("hidden");
+      document.body.style.overflow = "";
+
+      const spans = hamburger?.querySelectorAll("span");
+      spans?.forEach((span) => {
+        span.style.transform = "none";
+        span.style.opacity = "1";
+      });
+    }
+  });
+</script>
