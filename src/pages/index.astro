@@ -7,6 +7,10 @@ import heroImage from "../assets/hero-image.jpeg";
 import HeadersSection from "../components/headersSection.astro";
 import Cards from "../components/cards.astro";
 import CardsContent from "../data/CardsContent.js";
+import CardsReviews from "../components/cardsReviews.astro";
+import CardsReviewsContent from "../data/CardsReviewsContent.js";
+import PreIcfes from "../assets/pre-icfes.png";
+import KRadio from "../assets/k-radio.png";
 ---
 
 <Layout>
@@ -103,6 +107,94 @@ import CardsContent from "../data/CardsContent.js";
       </div>
     </div>
   </section>
+
+  <!-- Voice of Success -->
+   <section class="p-5">
+    <!-- Principal Container -->
+    <div class="flex flex-col text-center items-center justify-center gap-5 mb-10">
+      <HeadersSection text="El Reflejo de Nuestro Modelo Educativo" />
+      <h2 class="font-bold text-[##1A1A1A] text-4xl">Voces de Éxito en CECO</h2>
+      <p class="text-[##333333] font-medium text-md">Nuestros testimonios son un reflejo genuino del ambiente de apoyo y la eficacia de nuestro modelo educativo por ciclos. Expresan el impacto positivo en el crecimiento profesional y personal que experimentan nuestros estudiantes.</p>
+    </div>
+    <!-- Cards Review Container -->
+    <div>
+      <div class="">
+        {
+          CardsReviewsContent.map((cardReview) => (
+            <CardsReviews
+              image={cardReview.image}
+              name={cardReview.name}
+              rating={cardReview.rating}
+              details={cardReview.details}
+            />
+          ))
+        }
+      </div>
+
+    </div>
+   </section>
+
+   <section class="p-5">
+    <!-- Principal Container -->
+    <div class="flex flex-col text-center items-center justify-center gap-5">
+      <figure class="w-full ">
+        <Image
+          src={PreIcfes}
+          alt="Hero Image"
+          class="w-screen h-full"
+        />
+      </figure>
+      <!-- Text Container -->
+       <div class="flex flex-col gap-5 justidfy-center items-center text-center mt-6">
+        <h2 class="text-3xl text-[#1A1A1A] font-extrabold">Prepárate para el Icfes: <span class="text-[#00AEEF]">¡Tu futuro te espera!</span></h2>
+        <p class="font-medium text-md">En CECO te ofrecemos una preparación sólida y efectiva para el ICFES, con clases dinámicas y acompañamiento personalizado que fortalecen tus habilidades en cada área. Nuestro objetivo es ayudarte a alcanzar los mejores resultados y abrir nuevas oportunidades para tu futuro académico. ¡Prepárate con CECO y avanza con confianza!</p>
+        <button class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max">Empieza tu Preparación</button>
+       </div>
+    </div>
+   </section>
+
+   <!-- Ask frecuently -->
+    <section class="p-5">
+      <!-- Principal Container -->
+      <div class="flex flex-col gap-3 justify-center items-center">
+      <HeadersSection text="Respuestas Esenciales para el Éxito" />
+      <!-- Text Container -->
+      <div class="flex flex-col gap-4 justify-center items-center text-center">
+        <h2 class="text-[#1A1A1A] font-bold text-4xl">Preguntas Frecuentes</h2>
+        <p class="font-medium text-lg text-[#333333]">Encuentra toda la información esencial que necesitas en nuestra sección de Preguntas Frecuentes (FAQ), diseñada para guiarte en tu proceso de toma de decisiones educativas.</p>
+      </div>
+      </div>
+    </section>
+    <!-- K-Radio Container -->
+    <section class="p-5">
+      <!-- Principal Container -->
+      <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
+        <figure>
+          <Image
+            src={KRadio}
+            alt="Hero Image"
+            class="w-screen h-full"
+          />
+        </figure>
+        <div class="flex flex-col justify-center items-center gap-3">
+          <h2 class="font-extrabold text-3xl text-[1A1A1A]">Sintonízate con <span class="text-[#00AEEF]">K-Radio</span></h2>
+          <p class="font-medium text-lg text-[#333333] text-center">Conéctate a K Radio y disfruta de una programación variada que combina música, información y contenidos para todos los gustos. Una señal en vivo pensada para acompañarte en cualquier momento del día.</p>
+          <button class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max">Vibra Con K-Radio</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore more Section -->
+     <section class="p-5">
+      <!-- Principal Container -->
+      <div class="flex flex-col gap-3 justify-center items-center">
+        <HeadersSection text="Explora Más" />
+        <div class="flex flex-col gap-3 justify-center items-center text-center">
+          <h2 class="font-bold text-3xl">Navega a Través de Nuestros Programas</h2>
+          <p class="font-medium text-[#333333] text-md">Tu puerta de entrada para descubrir información valiosa sobre nuestro modelo educativo por ciclos. Siéntete libre de explorar y conocer la experiencia de crecimiento integral que te espera en CECO.</p>
+        </div>
+      </div>
+     </section>
   <!-- Footer Components -->
   <Footer />
 </Layout>
