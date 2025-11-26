@@ -2,10 +2,107 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero-image.jpeg";
+import HeadersSection from "../components/headersSection.astro";
+import Cards from "../components/cards.astro";
+import CardsContent from "../data/CardsContent.js";
 ---
 
 <Layout>
+  <!-- Navbar Component -->
   <Navbar />
+  <!-- Hero Section -->
+  <section class="p-5">
+    <!-- Principal Container -->
+    <div class="flex flex-col items-center justify-center gap-5">
+      <!-- Image Hero -->
+      <figure>
+        <Image
+          src={heroImage}
+          alt="Hero Image"
+          class="w-full h-full object-contain"
+        />
+      </figure>
+      <!-- Text Container -->
+      <div
+        class="flex flex-col items-center justify-center text-center mt-6 gap-5"
+      >
+        <!-- "Header of Title" -->
+        <div class="w-[90%]">
+          <p class="text-lg text-start px-5 text-[#262626] font-medium">
+            Bienvenidos al Colegio de Educación por Ciclos de Oriente
+          </p>
+          <div class="h-[3px] w-[85%] bg-[#262626] rounded-full mt-1 ml-5">
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-3xl font-extrabold text-[#1A1A1A]">
+          Cultivando Conocimiento, <span class="text-[#00AEEF]"
+            >Construyendo Futuros.</span
+          >
+        </h1>
+        <p class="text-[#333333] text-lg font-medium">
+          En CECO, ofrecemos una educación integral por ciclos, adaptada a las
+          necesidades de cada estudiante para impulsar su desarrollo académico y
+          personal. ¡Construimos juntos un futuro lleno de oportunidades!
+        </p>
+        <!-- Stats Container -->
+        <div class="border-2 w-full rounded-2xl bg-[#D9FFA1]">
+          <div class="text-center p-7">
+            <p class="text-4xl font-extrabold text-[#262626]">+3500</p>
+            <p class="text-xl text-[#262626] font-medium">Estudiantes</p>
+
+            <div class="mt-5 w-[70%] mx-auto h-1 bg-[#262626]"></div>
+          </div>
+          <div class="text-center p-7">
+            <p class="text-4xl font-extrabold text-[#262626]">+50</p>
+            <p class="text-xl text-[#262626] font-medium">
+              Docentes Capacitados
+            </p>
+
+            <div class="mt-5 w-[70%] mx-auto h-1 bg-[#262626]"></div>
+          </div>
+          <div class="text-center p-7">
+            <p class="text-4xl font-extrabold text-[#262626]">+15</p>
+            <p class="text-xl text-[#262626] font-medium">
+              Experiencia Educando
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  -->
+  <section class="p-5">
+    <div class="flex flex-col items-center justify-center gap-5 mb-10">
+      <HeadersSection text="Adaptación y Flexibilidad para el Exito" />
+      <div class="flex flex-col gap-3 pb-3">
+        <h2 class="text-[#00AEEF] font-bold text-2xl text-center">
+          La Fortaleza de Nuestro Modelo por Ciclos
+        </h2>
+        <p class="text-center font-medium text-[#333333] text-xl">
+          Con un equipo dedicado de educadores expertos, instalaciones de última
+          generación y un plan de estudios integral por ciclos, nuestro objetivo
+          es sentar bases sólidas y adaptables para el futuro y ritmo de
+          aprendizaje de cada estudiante.
+        </p>
+      </div>
+      <!-- Cards Container -->
+      <div class="flex flex-col gap-15 pt-10">
+        {
+          CardsContent.map((card) => (
+            <Cards
+              title={card.title}
+              description={card.description}
+              icon={card.icon}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <!-- Footer Components -->
   <Footer />
-  <section></section>
 </Layout>
