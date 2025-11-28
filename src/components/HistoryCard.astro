@@ -1,0 +1,14 @@
+---
+import historyCard from "../assets/history-card.svg";
+import { Image } from "astro:assets";
+const { year } = Astro.props;
+---
+
+<div
+  class="flex items-center justify-between gap-10 w-max border-2 rounded-xl p-3 lg:p-7"
+>
+  <figure>
+    <Image src={historyCard} alt={"Historia del ceco"} />
+  </figure>
+  <p class="font-bold text-4xl">{year}</p>
+</div>

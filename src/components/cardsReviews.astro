@@ -1,55 +1,49 @@
 ---
-const {image, name, rating, details } = Astro.props;
 import { Image } from "astro:assets";
 import star from "../assets/star.svg";
-import leftArrow from "../assets/arrow-left.svg";
-import rightArrow from "../assets/arrow-right.svg";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  rating: number;
+  details: string;
+}
+
+const { image, name, rating, details } = Astro.props;
 ---
-<div class="border-2 p-10 flex flex-col justify-center items-center gap-5 rounded-2xl bg-[#FFFFFF] shadow-lg">
-    <figure class="p-4 bg-[#FFF5F0] rounded-full border">
-        <Image
-            src={image}
-            alt={name}
-            class="w-10 h-10 object-cover rounded-full"
-        />
+
+<div
+  class="border-2 p-6 md:p-8 lg:p-10 flex flex-col justify-between items-center gap-5 rounded-2xl bg-[#FFFFFF] shadow-lg h-full min-h-[400px]"
+>
+  <div class="flex flex-col items-center gap-5 flex-grow justify-center">
+    <figure class="p-4 bg-[#FFF5F0] rounded-full border flex-shrink-0">
+      <Image
+        src={image}
+        alt={name}
+        class="w-10 h-10 object-cover rounded-full"
+      />
     </figure>
+
     <p class="font-semibold text-xl">{name}</p>
-    
+
     <!-- Stars -->
-    <div class="flex gap-2">
-        {Array.from({ length: 5 }, (_, i) => (
-            <Image
-                src={star}
-                alt="star"
-                class={`w-4 h-4 ${i < rating ? 'opacity-100' : 'opacity-30'}`}
-            />
-        ))}
+    <div class="flex gap-2 flex-shrink-0">
+      {
+        Array.from({ length: 5 }, (_, i) => (
+          <Image
+            src={star}
+            alt="star"
+            class={`w-4 h-4 ${i < rating ? "opacity-100" : "opacity-30"}`}
+          />
+        ))
+      }
     </div>
-    
-    <p class="text-center text-[#333333] font-medium text-md">{details}</p>
+  </div>
 
+  <p
+    class="text-center text-[#333333] font-medium text-sm md:text-base leading-relaxed"
+  >
+    {details}
+  </p>
 </div>
-    <!-- Flechas de navegación -->
-    <div class="flex gap-3 mt-4 justify-center pt-5 ">
-        <button 
-            class="carousel-prev w-12 h-12 border-2 border-[##333333]  rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-            aria-label="Anterior"
-        >
-        <Image 
-            src={leftArrow} 
-            alt="Left Arrow" 
-            class="w-3 h-3"
-        />
-        </button>
-
-        <button 
-            class="carousel-next w-12 h-12 border-2 border-[##333333]  rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-            aria-label="Siguiente"
-        >
-        <Image 
-            src={rightArrow} 
-            alt="Right Arrow" 
-            class="w-3 h-3"     
-        />
-        </button>
-    </div>

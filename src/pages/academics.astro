@@ -1,10 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import SectionCard from "../components/sectionCard.astro";
+import HeadersSection from "../components/headersSection.astro";
 import Footer from "../components/Footer.astro";
+import DiferentsCardsContent from "../data/diferentsCardsContent";
+import CardsContent from "../data/CardsContent";
+import Cards from "../components/cards.astro";
 ---
 
 <Layout>
   <Navbar />
+  <section class="p-5">
+    <SectionCard
+      HeaderText="Academia"
+      title="Lo que Nuestros Estudiantes Aprenden"
+      description="En nuestros ciclos educativos, los estudiantes desarrollan las competencias esenciales para culminar su bachillerato, fortaleciendo habilidades académicas, personales y ciudadanas que les permiten avanzar con seguridad hacia nuevas oportunidades laborales o educativas."
+    />
+  </section>
+  <section class="p-5 flex flex-col gap-5">
+    <HeadersSection text="Nuestro pilares" />
+    <h2 class="font-bold text-3xl text-center">Los que nos hace diferente</h2>
+    <p class="font-medium text-lg text-center text-[#333333]">
+      En nuestro colegio de validación, ofrecemos una experiencia académica
+      flexible, acompañada y enfocada en garantizar que cada estudiante complete
+      su bachillerato con éxito, sin importar su edad o situación.
+    </p>
+    <!-- Cards Container -->
+    <div class="flex flex-col gap-15 pt-10 lg:grid lg:grid-cols-3 lg:gap-10">
+      {
+        DiferentsCardsContent.map((card) => (
+          <Cards
+            title={card.title}
+            description={card.description}
+            icon={card.icon}
+          />
+        ))
+      }
+    </div>
+  </section>
+  <section class="p-5 flex flex-col gap-5">
+    <HeadersSection text="Contenido" />
+    <h2 class="font-bold text-3xl text-center">
+      Contenidos Clave para la Validación
+    </h2>
+    <p class="font-medium text-lg text-center text-[#333333]">
+      En nuestra institución de Validación de Bachillerato, nos enfocamos en
+      proporcionar el conocimiento esencial que los jóvenes y adultos necesitan
+      para superar los exámenes de validación con éxito. Nuestros programas
+      académicos cubren las áreas fundamentales, permitiendo a los estudiantes
+      construir una base sólida y acelerar su proceso de graduación.
+    </p>
+
+    <!-- Materias Container -->
+    <div class="flex flex-col gap-5">
+      {}
+    </div>
+  </section>
+  <!--  -->
+  <section></section>
   <Footer />
 </Layout>
