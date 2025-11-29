@@ -4,25 +4,27 @@ import gmail from "../assets/gmail.svg";
 import { Image } from "astro:assets";
 ---
 
-<div class="border-2 p-7 rounded-xl">
+<div class="border-2 p-7 rounded-xl flex flex-col h-full">
   <!-- Header Container -->
   <div class="flex justify-between items-center w-full">
     <div class="flex items-center justify-center gap-5 w-full">
-      <figure class="p-1 bg-[#FFF5F0] rounded-xl">
+      <figure class="p-1 bg-[#FFF5F0] rounded-xl flex-shrink-0">
         <Image src={image} alt={name} class="w-20 h-20 object-cover" />
       </figure>
       <p class="font-extrabold text-[#333333] text-2xl">
         {name}
       </p>
     </div>
-    <div>
+    <div class="flex-shrink-0">
       <button class="bg-[#00AEEF] p-2 rounded-xl">
         <Image src={gmail} alt={"contactar al equipo"} class="w-7 h-7" />
       </button>
     </div>
   </div>
-  <!-- Body Container -->
-  <div class="p-5 bg-[#D9FFA1] border-2 rounded-xl flex flex-col gap-4 mt-7">
+  <!-- Body Container - flex-grow hace que ocupe el espacio disponible -->
+  <div
+    class="p-5 bg-[#D9FFA1] border-2 rounded-xl flex flex-col gap-4 mt-7 flex-grow"
+  >
     <h3 class="text-[#333333] font-semibold text-xl">{title}</h3>
     <p class="text-[#333333] font-medium text-lg">{description}</p>
   </div>

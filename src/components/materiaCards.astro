@@ -4,9 +4,9 @@ const { title, description, image } = Astro.props;
 ---
 
 <div
-  class="bg-white border-2 rounded-xl p-5 flex flex-col gap-5 overflow-visible"
+  class="bg-white border-2 rounded-xl p-5 flex flex-col gap-5 overflow-visible h-full"
 >
-  <figure class="relative overflow-visible h-48">
+  <figure class="relative overflow-visible h-48 flex-shrink-0">
     <!-- Línea azul decorativa detrás de la imagen -->
     <div
       class="absolute left-1/2 w-24 bg-blue-500"
@@ -21,8 +21,8 @@ const { title, description, image } = Astro.props;
       style="z-index: 1;"
     />
   </figure>
-  <!-- Text Container -->
-  <div class="flex flex-col gap-5">
+  <!-- Text Container - flex-grow permite que se expanda -->
+  <div class="flex flex-col gap-5 flex-grow">
     <h3 class="font-bold text-2xl text-center">{title}</h3>
     <p class="font-medium text-lg text-center text-[#4C4C4D]">{description}</p>
   </div>

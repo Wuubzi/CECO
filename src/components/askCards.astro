@@ -3,7 +3,7 @@ const { ask, answer } = Astro.props;
 ---
 
 <div
-  class="faq-item border-2 border-[#262626] rounded-xl overflow-hidden transition-all duration-300"
+  class="faq-item border-2 border-[#262626] rounded-xl overflow-hidden transition-all duration-300 self-start"
 >
   <!-- Header Container -->
   <button
@@ -51,6 +51,16 @@ const { ask, answer } = Astro.props;
       header?.addEventListener("click", () => {
         const isOpen = body?.style.maxHeight && body.style.maxHeight !== "0px";
 
+        // Cerrar todas las demás tarjetas (opcional - comentar si quieres múltiples abiertas)
+        // faqItems.forEach((otherItem) => {
+        //   if (otherItem !== item) {
+        //     const otherBody = otherItem.querySelector(".faq-body") as HTMLElement;
+        //     const otherIcon = otherItem.querySelector(".faq-icon");
+        //     if (otherBody) otherBody.style.maxHeight = "0px";
+        //     otherIcon?.classList.remove("rotate-45");
+        //   }
+        // });
+
         if (isOpen) {
           // Cerrar
           if (body) body.style.maxHeight = "0px";
@@ -66,3 +76,10 @@ const { ask, answer } = Astro.props;
     });
   });
 </script>
+
+<style>
+  /* Asegurar que cada tarjeta se alinee al inicio de su celda */
+  .faq-item {
+    align-self: start;
+  }
+</style>

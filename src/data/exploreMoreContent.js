@@ -3,7 +3,7 @@ const exploreMoreContent = [
         title: "Sobre CECO",
         description: "Descubre nuestra Misión, Valores y el compromiso inquebrantable que tenemos con la educación por ciclos. Conoce a nuestros docentes y nuestra visión para tu futuro.",
         button: "Conocer Más",
-        color: "#BEFA61"
+        color: "#00AEEF"
     }, 
     {
         title: "Modelo por Ciclos",
@@ -21,7 +21,7 @@ const exploreMoreContent = [
         title: "Admisiones y Validación",
         description: "Infórmate sobre nuestro Proceso de Matrícula, cómo funciona la Validación de Estudios Previos y los plazos de inscripción. Asegura tu lugar en el ciclo que deseas comenzar.",
         button: "Iniciar Proceso",
-        color: "#BEFA61"
+        color: "#00AEEF"
     }
 ];
 export default exploreMoreContent;
