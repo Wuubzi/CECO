@@ -1,0 +1,32 @@
+---
+const { number, title, description } = Astro.props;
+import lineaProcess from "../assets/lineaProcess.svg";
+import { Image } from "astro:assets";
+---
+
+<div class="flex flex-col items-center lg:items-start h-full">
+  <!-- Number Card -->
+  <div class="border-2 w-max p-4 rounded-xl relative flex-shrink-0">
+    <h3 class="text-3xl font-extrabold">{number}</h3>
+
+    <!-- Línea conectora - posicionada desde el centro del número -->
+    <figure class="absolute left-1/2 -translate-x-1/2 w-25">
+      <Image
+        src={lineaProcess}
+        alt="linea del proceso verde para unir con el body"
+        class="w-full h-auto"
+      />
+    </figure>
+  </div>
+
+  <!-- Espaciador para la línea -->
+  <div class="h-12 flex-shrink-0"></div>
+
+  <!-- Content Card -->
+  <div
+    class="border-2 p-5 rounded-xl px-10 flex flex-col gap-5 w-full flex-grow"
+  >
+    <h2 class="font-bold text-2xl">{title}</h2>
+    <p class="font-medium text-lg text-[#4C4C4D]">{description}</p>
+  </div>
+</div>

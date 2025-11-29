@@ -20,86 +20,114 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
 <Layout>
   <!-- Navbar Component -->
   <Navbar />
+
   <!-- Hero Section -->
-  <section class="p-5">
+  <section class="p-5 opacity-0 animate-fade-in">
     <!-- Principal Container -->
     <div
-      class="flex flex-col items-center justify-center gap-5 lg:flex-row mb-10 lg:gap-20"
+      class="flex flex-col items-center justify-center gap-5 lg:flex-row mb-10 lg:gap-20 max-w-7xl mx-auto"
     >
       <!-- Image Hero -->
-      <figure class="">
+      <figure class="scroll-reveal lg:w-1/2">
         <Image
           src={heroImage}
           alt="Hero Image"
-          class="w-full h-full object-contain"
+          class="w-full h-full object-contain rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500"
         />
       </figure>
       <!-- Text Container -->
       <div
-        class="flex flex-col items-center justify-center text-center mt-6 gap-5 lg:w-full lg:p-10 lg:items-start"
+        class="flex flex-col items-center justify-center text-center mt-6 gap-5 lg:w-1/2 lg:p-10 lg:items-start scroll-reveal"
       >
         <!-- "Header of Title" -->
-        <div class="w-[90%]">
+        <div class="w-full">
           <p class="text-lg text-start px-5 text-[#262626] font-medium">
             Bienvenidos al Colegio de Educación por Ciclos de Oriente
           </p>
           <div
-            class="h-[3px] w-[85%] bg-[#262626] rounded-full mt-1 ml-5 lg:w-[72%]"
+            class="h-[3px] w-[85%] bg-[#262626] rounded-full mt-1 ml-5 lg:w-[72%] animate-expand"
           >
           </div>
         </div>
 
         <!-- Title -->
         <h1
-          class="text-3xl font-extrabold text-[#1A1A1A] lg:text-start lg:text-5xl"
+          class="text-3xl font-extrabold text-[#1A1A1A] lg:text-start lg:text-4xl xl:text-5xl"
         >
-          Cultivando Conocimiento, <span class="text-[#00AEEF]"
+          Cultivando Conocimiento, <span
+            class="text-[#00AEEF] inline-block hover:scale-105 transition-transform"
             >Construyendo Futuros.</span
           >
         </h1>
-        <p class="text-[#333333] text-lg font-medium lg:text-start lg:text-lg">
+        <p
+          class="text-[#333333] text-lg font-medium lg:text-start lg:text-lg xl:text-xl"
+        >
           En CECO, ofrecemos una educación integral por ciclos, adaptada a las
           necesidades de cada estudiante para impulsar su desarrollo académico y
           personal. ¡Construimos juntos un futuro lleno de oportunidades!
         </p>
         <!-- Stats Container -->
         <div
-          class="border-2 w-full rounded-2xl bg-[#D9FFA1] lg:h-max lg:w-max lg:flex"
+          class="border-2 w-full rounded-2xl bg-[#D9FFA1] shadow-lg lg:flex lg:gap-4 hover:shadow-2xl transition-shadow duration-300"
         >
-          <div class="text-center p-7">
-            <p class="text-4xl font-extrabold text-[#262626]">+3500</p>
+          <div
+            class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
+          >
+            <p
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              data-target="3500"
+            >
+              0
+            </p>
             <p class="text-xl text-[#262626] font-medium">Estudiantes</p>
-
             <div class="mt-5 w-[70%] mx-auto h-1 bg-[#262626] lg:hidden"></div>
           </div>
-          <div class="text-center p-7">
-            <p class="text-4xl font-extrabold text-[#262626]">+50</p>
+          <div
+            class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
+          >
+            <p
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              data-target="50"
+            >
+              0
+            </p>
             <p class="text-xl text-[#262626] font-medium">
               Docentes Capacitados
             </p>
-
             <div class="mt-5 w-[70%] mx-auto h-1 bg-[#262626] lg:hidden"></div>
           </div>
-          <div class="text-center p-7">
-            <p class="text-4xl font-extrabold text-[#262626]">+15</p>
+          <div
+            class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
+          >
+            <p
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              data-target="15"
+            >
+              0
+            </p>
             <p class="text-xl text-[#262626] font-medium">
-              Experiencia Educando
+              Años de Experiencia
             </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!--  -->
-  <section class="p-5">
-    <div class="flex flex-col items-center justify-center gap-5 mb-10 lg:gap-8">
-      <HeadersSection text="Adaptación y Flexibilidad para el Exito" />
+
+  <!-- Fortalezas Section -->
+  <section class="p-5 scroll-reveal">
+    <div
+      class="flex flex-col items-center justify-center gap-5 mb-10 lg:gap-8 max-w-7xl mx-auto"
+    >
+      <HeadersSection text="Adaptación y Flexibilidad para el Éxito" />
       <div class="flex flex-col gap-3 pb-3 lg:gap-5">
-        <h2 class="text-[#00AEEF] font-bold text-2xl text-center lg:text-4xl">
+        <h2
+          class="text-[#00AEEF] font-bold text-2xl text-center lg:text-4xl xl:text-5xl"
+        >
           La Fortaleza de Nuestro Modelo por Ciclos
         </h2>
         <p
-          class="text-center font-medium text-[#333333] text-xl lg:text-lg lg:w-[60%] lg:mx-auto"
+          class="text-center font-medium text-[#333333] text-xl lg:text-lg xl:text-xl lg:w-[70%] xl:w-[60%] lg:mx-auto"
         >
           Con un equipo dedicado de educadores expertos, instalaciones de última
           generación y un plan de estudios integral por ciclos, nuestro objetivo
@@ -108,14 +136,21 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
         </p>
       </div>
       <!-- Cards Container -->
-      <div class="flex flex-col gap-15 pt-10 lg:grid lg:grid-cols-3 lg:gap-10">
+      <div
+        class="flex flex-col gap-15 pt-10 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-10 w-full"
+      >
         {
-          CardsContent.map((card) => (
-            <Cards
-              title={card.title}
-              description={card.description}
-              icon={card.icon}
-            />
+          CardsContent.map((card, index) => (
+            <div
+              class="scroll-reveal"
+              style={`animation-delay: ${index * 150}ms`}
+            >
+              <Cards
+                title={card.title}
+                description={card.description}
+                icon={card.icon}
+              />
+            </div>
           ))
         }
       </div>
@@ -123,16 +158,18 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
   </section>
 
   <!-- Voice of Success -->
-  <section class="p-5">
+  <section class="p-5 scroll-reveal">
     <!-- Principal Container -->
     <div
-      class="flex flex-col text-center items-center justify-center gap-5 mb-10"
+      class="flex flex-col text-center items-center justify-center gap-5 mb-10 max-w-7xl mx-auto"
     >
       <HeadersSection text="El Reflejo de Nuestro Modelo Educativo" />
-      <h2 class="font-bold text-[#1A1A1A] text-4xl lg:text-5xl">
+      <h2 class="font-bold text-[#1A1A1A] text-4xl lg:text-5xl xl:text-6xl">
         Voces de Éxito en CECO
       </h2>
-      <p class="text-[#333333] font-medium text-md max-w-3xl lg:text-lg">
+      <p
+        class="text-[#333333] font-medium text-md max-w-3xl lg:text-lg xl:text-xl"
+      >
         Nuestros testimonios son un reflejo genuino del ambiente de apoyo y la
         eficacia de nuestro modelo educativo por ciclos. Expresan el impacto
         positivo en el crecimiento profesional y personal que experimentan
@@ -167,7 +204,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
       <div class="flex gap-3 mt-8 justify-center">
         <button
           id="carousel-prev"
-          class="w-12 h-12 border-2 border-[#333333] rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-12 h-12 border-2 border-[#333333] rounded-lg flex items-center justify-center hover:bg-gray-100 hover:scale-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Anterior"
         >
           <svg
@@ -185,7 +222,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
         </button>
         <button
           id="carousel-next"
-          class="w-12 h-12 border-2 border-[#333333] rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-12 h-12 border-2 border-[#333333] rounded-lg flex items-center justify-center hover:bg-gray-100 hover:scale-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Siguiente"
         >
           <svg
@@ -208,24 +245,31 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
     </div>
   </section>
 
-  <section class="p-5">
+  <!-- Pre-ICFES Section -->
+  <section class="p-5 scroll-reveal">
     <!-- Principal Container -->
     <div
-      class="flex flex-col text-center items-center justify-center gap-5 lg:flex-row"
+      class="flex flex-col text-center items-center justify-center gap-8 lg:flex-row lg:gap-12 max-w-7xl mx-auto"
     >
-      <figure class="w-full">
-        <Image src={PreIcfes} alt="Hero Image" class="w-screen h-full" />
+      <figure class="w-full lg:w-1/2 scroll-reveal">
+        <Image
+          src={PreIcfes}
+          alt="Preparación ICFES"
+          class="w-full h-full rounded-2xl hover:scale-105 transition-transform duration-500"
+        />
       </figure>
       <!-- Text Container -->
       <div
-        class="flex flex-col gap-5 justify-center items-center text-center mt-6 lg:text-start lg:justify-start lg:items-start lg:w-full"
+        class="flex flex-col gap-5 justify-center items-center text-center mt-6 lg:text-start lg:justify-start lg:items-start lg:w-1/2 scroll-reveal"
       >
-        <h2 class="text-3xl text-[#1A1A1A] font-extrabold lg:text-5xl">
+        <h2
+          class="text-3xl text-[#1A1A1A] font-extrabold lg:text-5xl xl:text-6xl"
+        >
           Prepárate para el Icfes: <span class="text-[#00AEEF]"
             >¡Tu futuro te espera!</span
           >
         </h2>
-        <p class="font-medium text-md lg:text-lg">
+        <p class="font-medium text-md lg:text-xl xl:text-2xl text-[#333333]">
           En CECO te ofrecemos una preparación sólida y efectiva para el ICFES,
           con clases dinámicas y acompañamiento personalizado que fortalecen tus
           habilidades en cada área. Nuestro objetivo es ayudarte a alcanzar los
@@ -233,7 +277,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
           académico. ¡Prepárate con CECO y avanza con confianza!
         </p>
         <button
-          class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max"
+          class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >Empieza tu Preparación</button
         >
       </div>
@@ -241,16 +285,20 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
   </section>
 
   <!-- Ask frecuently -->
-  <section class="p-5">
+  <section class="p-5 scroll-reveal">
     <!-- Principal Container -->
-    <div class="flex flex-col gap-3 justify-center items-center">
+    <div
+      class="flex flex-col gap-3 justify-center items-center max-w-7xl mx-auto"
+    >
       <HeadersSection text="Respuestas Esenciales para el Éxito" />
       <!-- Text Container -->
       <div class="flex flex-col gap-4 justify-center items-center text-center">
-        <h2 class="text-[#1A1A1A] font-bold text-4xl lg:text-5xl">
+        <h2 class="text-[#1A1A1A] font-bold text-4xl lg:text-5xl xl:text-6xl">
           Preguntas Frecuentes
         </h2>
-        <p class="font-medium text-lg text-[#333333] lg:text-xl lg:w-[65%]">
+        <p
+          class="font-medium text-lg text-[#333333] lg:text-xl xl:text-2xl lg:w-[70%] xl:w-[65%]"
+        >
           Encuentra toda la información esencial que necesitas en nuestra
           sección de Preguntas Frecuentes (FAQ), diseñada para guiarte en tu
           proceso de toma de decisiones educativas.
@@ -261,88 +309,169 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
         class="flex flex-col gap-5 mt-10 w-full lg:grid lg:grid-cols-2 lg:gap-7"
       >
         {
-          askCardsContent.map((card) => (
-            <AskCards ask={card.question} answer={card.answer} />
+          askCardsContent.map((card, index) => (
+            <div
+              class="scroll-reveal"
+              style={`animation-delay: ${index * 100}ms`}
+            >
+              <AskCards ask={card.question} answer={card.answer} />
+            </div>
           ))
         }
       </div>
     </div>
-    <!-- K-Radio Container -->
-    <section class="p-5">
-      <!-- Principal Container -->
-      <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
-        <figure>
-          <Image src={KRadio} alt="Hero Image" class="w-screen h-full" />
-        </figure>
-        <div
-          class="flex flex-col justify-center items-center gap-3 lg:text-start lg:justify-start lg:items-start lg:w-full"
-        >
-          <h2 class="font-extrabold text-3xl text-[1A1A1A]">
-            Sintonízate con <span class="text-[#00AEEF]">K-Radio</span>
-          </h2>
-          <p class="font-medium text-lg text-[#333333] text-center">
-            Conéctate a K Radio y disfruta de una programación variada que
-            combina música, información y contenidos para todos los gustos. Una
-            señal en vivo pensada para acompañarte en cualquier momento del día.
-          </p>
-          <button
-            class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max"
-            >Vibra Con K-Radio</button
-          >
-        </div>
-      </div>
-    </section>
+  </section>
 
-    <!-- Explore more Section -->
-    <section class="p-5">
-      <!-- Principal Container -->
-      <div class="flex flex-col gap-5 justify-center items-center">
-        <HeadersSection text="Explora Más" />
-        <div
-          class="flex flex-col gap-5 justify-center items-center text-center"
+  <!-- K-Radio Container -->
+  <section class="p-5 scroll-reveal">
+    <!-- Principal Container -->
+    <div
+      class="flex flex-col md:flex-row gap-8 justify-center items-center max-w-7xl mx-auto lg:gap-12"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-5 lg:text-start lg:justify-start lg:items-start md:w-1/2 scroll-reveal"
+      >
+        <h2
+          class="font-extrabold text-3xl text-[#1A1A1A] lg:text-5xl xl:text-6xl text-center lg:text-start"
         >
-          <h2 class="font-bold text-3xl lg:text-5xl">
-            Navega a Través de Nuestros Programas
-          </h2>
-          <p class="font-medium text-[#333333] text-md lg:text-lg lg:w-[60%]">
-            Tu puerta de entrada para descubrir información valiosa sobre
-            nuestro modelo educativo por ciclos. Siéntete libre de explorar y
-            conocer la experiencia de crecimiento integral que te espera en
-            CECO.
-          </p>
-        </div>
-        <!-- Explore more Cards Container -->
-        <div class="flex flex-col gap-7 pt-5 lg:grid lg:grid-cols-2 lg:gap-10">
-          {
-            exploreMoreContent.map((card) => (
+          Sintonízate con <span class="text-[#00AEEF]">K-Radio</span>
+        </h2>
+        <p
+          class="font-medium text-lg text-[#333333] text-center lg:text-start lg:text-xl xl:text-2xl"
+        >
+          Conéctate a K Radio y disfruta de una programación variada que combina
+          música, información y contenidos para todos los gustos. Una señal en
+          vivo pensada para acompañarte en cualquier momento del día.
+        </p>
+        <button
+          class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >Vibra Con K-Radio</button
+        >
+      </div>
+      <figure class="md:w-1/2 scroll-reveal">
+        <Image
+          src={KRadio}
+          alt="K-Radio"
+          class="w-full h-full rounded-2xl hover:scale-105 transition-transform duration-500"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Explore more Section -->
+  <section class="p-5 scroll-reveal">
+    <!-- Principal Container -->
+    <div
+      class="flex flex-col gap-5 justify-center items-center max-w-7xl mx-auto"
+    >
+      <HeadersSection text="Explora Más" />
+      <div class="flex flex-col gap-5 justify-center items-center text-center">
+        <h2 class="font-bold text-3xl lg:text-5xl xl:text-6xl">
+          Navega a Través de Nuestros Programas
+        </h2>
+        <p
+          class="font-medium text-[#333333] text-md lg:text-xl xl:text-2xl lg:w-[70%] xl:w-[60%]"
+        >
+          Tu puerta de entrada para descubrir información valiosa sobre nuestro
+          modelo educativo por ciclos. Siéntete libre de explorar y conocer la
+          experiencia de crecimiento integral que te espera en CECO.
+        </p>
+      </div>
+      <!-- Explore more Cards Container -->
+      <div
+        class="flex flex-col gap-7 pt-5 lg:grid lg:grid-cols-2 lg:gap-10 w-full"
+      >
+        {
+          exploreMoreContent.map((card, index) => (
+            <div
+              class="scroll-reveal"
+              style={`animation-delay: ${index * 150}ms`}
+            >
               <ExploreMoreCards
                 title={card.title}
                 description={card.description}
                 button={card.button}
                 color={card.color}
               />
-            ))
-          }
-        </div>
+            </div>
+          ))
+        }
       </div>
-    </section>
-    <!-- Footer Components -->
-    <Footer />
+    </div>
   </section>
+
+  <!-- Footer Components -->
+  <Footer />
 </Layout>
 
 <script>
-  // Obtener elementos del DOM con verificación de null
+  // Intersection Observer para animaciones al hacer scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los elementos con la clase scroll-reveal
+  document.querySelectorAll(".scroll-reveal").forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Animación de contadores
+  function animateCounter(element: HTMLElement) {
+    const target = parseInt(element.getAttribute("data-target") || "0");
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        element.textContent = Math.floor(current).toString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target.toString() + (target === 3500 ? "+" : "+");
+      }
+    };
+
+    updateCounter();
+  }
+
+  // Observar contadores
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll(".counter").forEach((counter) => {
+    if (counter instanceof HTMLElement) {
+      counterObserver.observe(counter);
+    }
+  });
+
+  // Carousel Logic
   const track = document.getElementById("carousel-track");
   const prevBtn = document.getElementById("carousel-prev");
   const nextBtn = document.getElementById("carousel-next");
   const dotsContainer = document.getElementById("carousel-dots");
 
-  // Verificar que todos los elementos existen antes de continuar
   if (!track || !prevBtn || !nextBtn || !dotsContainer) {
     console.error("Carousel: Required elements not found");
   } else {
-    // Variables de estado
     let currentIndex = 0;
     let cardsPerView = 1;
     let totalCards = 0;
@@ -350,9 +479,9 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
 
     function calculateCardsPerView() {
       const width = window.innerWidth;
-      if (width >= 1024) return 3; // lg
-      if (width >= 768) return 2; // md
-      return 1; // mobile
+      if (width >= 1024) return 3;
+      if (width >= 768) return 2;
+      return 1;
     }
 
     function updateCarousel() {
@@ -362,13 +491,12 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
       totalCards = track.children.length;
       maxIndex = Math.max(0, totalCards - cardsPerView);
 
-      // Ajustar currentIndex si es necesario
       currentIndex = Math.min(currentIndex, maxIndex);
 
       const firstCard = track.children[0];
       if (firstCard instanceof HTMLElement) {
         const cardWidth = firstCard.offsetWidth;
-        const gap = 24; // 6 * 4px (gap-6 de Tailwind)
+        const gap = 24;
         const offset = -(currentIndex * (cardWidth + gap));
 
         track.style.transform = `translateX(${offset}px)`;
@@ -437,17 +565,14 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
       }
     }
 
-    // Event Listeners
     if (prevBtn) prevBtn.addEventListener("click", prev);
     if (nextBtn) nextBtn.addEventListener("click", next);
 
-    // Keyboard navigation
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
     });
 
-    // Touch/Swipe support
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -468,21 +593,80 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
       if (touchEndX - touchStartX > swipeThreshold) prev();
     }
 
-    // Responsive handling
     window.addEventListener("resize", () => {
       updateCarousel();
       createDots();
     });
 
-    // Initialize
     updateCarousel();
     createDots();
   }
 </script>
 
 <style>
+  /* Animación de fade-in para el hero */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  /* Animación de expansión para la línea */
+  @keyframes expand {
+    from {
+      width: 0;
+    }
+    to {
+      width: 85%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    @keyframes expand {
+      from {
+        width: 0;
+      }
+      to {
+        width: 72%;
+      }
+    }
+  }
+
+  .animate-expand {
+    animation: expand 1s ease-out 0.5s forwards;
+    width: 0;
+  }
+
+  /* Animaciones de scroll reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   /* Asegurar que el track no se rompa */
   #carousel-track {
     will-change: transform;
+  }
+
+  /* Smooth scroll para toda la página */
+  html {
+    scroll-behavior: smooth;
   }
 </style>

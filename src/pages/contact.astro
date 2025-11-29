@@ -1,10 +1,342 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import { Image } from "astro:assets";
+import HeadersSection from "../components/headersSection.astro";
+import abstract from "../assets/abstract.svg";
 import Footer from "../components/Footer.astro";
+import contactCardsContent from "../data/contactCardsContent.js";
+import ContactCards from "../components/contactCards.astro";
 ---
 
 <Layout>
   <Navbar />
+
+  <!-- Hero Contact Section -->
+  <section class="p-5 opacity-0 animate-fade-in">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="border-2 border-black rounded-xl p-8 w-full flex flex-col gap-4 relative lg:flex-row lg:p-12 lg:gap-8 hover:shadow-2xl transition-all duration-300"
+      >
+        <!-- Abstract decorativo -->
+        <figure class="absolute top-0 left-0 animate-float">
+          <Image
+            src={abstract}
+            alt={"Colegio de Educación por Ciclos de Oriente"}
+            class="w-24 h-24 lg:w-32 lg:h-32"
+          />
+        </figure>
+
+        <!-- Contenido izquierdo (título y badge) -->
+        <div
+          class="flex flex-col gap-4 pt-12 lg:pt-0 lg:min-w-[280px] lg:max-w-[320px] lg:pl-8 scroll-reveal"
+        >
+          <HeadersSection text="Contáctanos" />
+          <h2
+            class="font-medium text-[#262626] text-center text-2xl lg:text-3xl xl:text-4xl lg:text-left leading-tight"
+          >
+            No dudes en ponerte en contacto con nosotros.
+          </h2>
+        </div>
+
+        <!-- Contenido derecho (descripción) -->
+        <div
+          class="lg:flex-1 lg:flex lg:items-center lg:pl-8 lg:border-l-2 lg:border-gray-200 scroll-reveal"
+          style="animation-delay: 200ms"
+        >
+          <div>
+            <p
+              class="text-[#333333] text-center font-medium text-base lg:text-lg xl:text-xl lg:text-left lg:leading-relaxed"
+            >
+              Valoramos la comunicación abierta y estamos listos para asistirte
+              con cualquier consulta. Si tienes preguntas sobre el proceso de
+              validación, horarios o costos, no dudes en comunicarte con
+              nosotros a través de cualquiera de los siguientes métodos de
+              contacto
+            </p>
+            <div class="grid gap-5 pt-5 grid-cols-1 sm:grid-cols-2">
+              {
+                contactCardsContent.map((card, index) => (
+                  <div
+                    class="scroll-reveal"
+                    style={`animation-delay: ${(index + 3) * 100}ms`}
+                  >
+                    <ContactCards icon={card.icon} text={card.text} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section
+    class="p-5 lg:p-10 flex flex-col gap-5 items-center justify-center scroll-reveal"
+  >
+    <div class="max-w-7xl mx-auto w-full flex flex-col gap-5 items-center">
+      <HeadersSection text="Contáctanos" />
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+        Formulario de Interés
+      </h2>
+      <p
+        class="text-[#333333] text-center font-medium text-lg lg:text-lg xl:text-xl lg:w-[80%] xl:w-[70%]"
+      >
+        Si tienes preguntas específicas o deseas solicitar más información sobre
+        nuestro programa de Validación de Bachillerato, por favor, completa el
+        siguiente formulario de contacto. Te agradecemos que nos brindes estos
+        detalles para entender mejor tus necesidades.
+      </p>
+
+      <!-- Form Container -->
+      <div
+        class="p-8 lg:p-10 border-[#262626] border-2 rounded-xl w-full hover:shadow-2xl transition-all duration-300 scroll-reveal"
+        style="animation-delay: 200ms"
+      >
+        <form
+          action=""
+          class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8"
+        >
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 300ms"
+          >
+            <label
+              for="nombre-interesado"
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+            >
+              Nombre del Interesado
+            </label>
+            <input
+              id="nombre-interesado"
+              name="nombre-interesado"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              type="text"
+              placeholder="Ingresa tu Nombre Completo"
+              required
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 350ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="correo"
+            >
+              Correo Electrónico
+            </label>
+            <input
+              id="correo"
+              name="correo"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              type="email"
+              placeholder="Ingresa tu Correo Electrónico"
+              required
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 400ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="telefono"
+            >
+              Número de Contacto
+            </label>
+            <input
+              id="telefono"
+              name="telefono"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              type="tel"
+              placeholder="Ingresa tu Número de Teléfono"
+              required
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 450ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="nombre-estudiante"
+            >
+              Nombre del Estudiante
+            </label>
+            <input
+              id="nombre-estudiante"
+              name="nombre-estudiante"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              type="text"
+              placeholder="Ingresa el nombre de la persona que va a estudiar"
+              required
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 500ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="edad"
+            >
+              Edad
+            </label>
+            <input
+              id="edad"
+              name="edad"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              type="number"
+              min="10"
+              max="99"
+              placeholder="Ingresa tu Edad"
+              required
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-3 scroll-reveal"
+            style="animation-delay: 550ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="ciclo"
+            >
+              Grado o Ciclo a Validar
+            </label>
+            <select
+              id="ciclo"
+              name="ciclo"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] cursor-pointer lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              required
+            >
+              <option value="" disabled selected
+                >Selecciona el Ciclo que te interesa</option
+              >
+              <option value="ciclo-1">Ciclo I - Grados 6° y 7°</option>
+              <option value="ciclo-2">Ciclo II - Grados 8° y 9°</option>
+              <option value="ciclo-3">Ciclo III - Grados 10° y 11°</option>
+            </select>
+          </div>
+
+          <div
+            class="flex flex-col gap-3 lg:col-span-2 scroll-reveal"
+            style="animation-delay: 600ms"
+          >
+            <label
+              class="font-semibold text-[#4C4C4C] text-lg lg:text-xl"
+              for="mensaje"
+            >
+              Mensaje
+            </label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] min-h-[120px] resize-y lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
+              placeholder="Ingresa tu Mensaje (Ej: ¿Cuándo inician las clases?)"
+              rows="4"></textarea>
+          </div>
+
+          <button
+            class="bg-[#8CC63F] p-4 flex items-center justify-center text-xl lg:text-2xl text-[#262626] font-bold w-full rounded-xl hover:bg-[#7AB52F] hover:scale-105 transition-all duration-300 lg:col-span-2 cursor-pointer shadow-lg hover:shadow-xl scroll-reveal"
+            style="animation-delay: 650ms"
+            type="submit"
+          >
+            Enviar Solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <Footer />
 </Layout>
+
+<script>
+  // Intersection Observer para animaciones al hacer scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los elementos con la clase scroll-reveal
+  document.querySelectorAll(".scroll-reveal").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  /* Animación de fade-in para el hero */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  /* Animación de flotación para el icono abstract */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Animaciones de scroll reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Smooth scroll para toda la página */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mejorar la apariencia de los selects */
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23262626' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+</style>

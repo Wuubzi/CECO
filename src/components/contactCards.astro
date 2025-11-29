@@ -1,0 +1,11 @@
+---
+const { icon, text } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div class="border-2 p-2 flex gap-5 rounded-xl items-center">
+  <figure class="bg-[#D9FFA1] p-2 rounded-xl">
+    <Image src={icon} alt={text} />
+  </figure>
+  <p class="font-medium text-[#262626] text-lg">{text}</p>
+</div>

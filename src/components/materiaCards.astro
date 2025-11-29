@@ -3,13 +3,27 @@ import { Image } from "astro:assets";
 const { title, description, image } = Astro.props;
 ---
 
-<div class="border-2">
-  <figure>
-    <Image src={image} alt={title} />
+<div
+  class="bg-white border-2 rounded-xl p-5 flex flex-col gap-5 overflow-visible"
+>
+  <figure class="relative overflow-visible h-48">
+    <!-- Línea azul decorativa detrás de la imagen -->
+    <div
+      class="absolute left-1/2 w-24 bg-blue-500"
+      style="top: -1.3rem; bottom: -1.5rem; transform: translateX(-50%); z-index: 0; border-bottom-left-radius: 0.75rem; border-bottom-right-radius: 0.75rem;"
+    >
+    </div>
+
+    <Image
+      src={image}
+      alt={title}
+      class="relative rounded-lg w-full h-full object-cover"
+      style="z-index: 1;"
+    />
   </figure>
   <!-- Text Container -->
-  <div>
-    <h3>{title}</h3>
-    <p>{description}</p>
+  <div class="flex flex-col gap-5">
+    <h3 class="font-bold text-2xl text-center">{title}</h3>
+    <p class="font-medium text-lg text-center text-[#4C4C4D]">{description}</p>
   </div>
 </div>

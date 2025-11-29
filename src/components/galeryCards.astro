@@ -1,0 +1,164 @@
+---
+const { images, title, description } = Astro.props;
+import arrowLeft from "../assets/arrow-left.svg";
+import arrowRight from "../assets/arrow-right.svg";
+import { Image } from "astro:assets";
+
+const imageList = images.map((img: any) => {
+  const key = Object.keys(img)[0];
+  return img[key];
+});
+---
+
+<div
+  class="gallery-card mt-10 border-2 relative w-full max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg lg:max-w-none lg:shadow-none lg:bg-transparent"
+>
+  <!-- Carrusel Mobile -->
+  <div class="lg:hidden">
+    <div
+      class="image-container relative w-full aspect-4/3 overflow-hidden bg-gray-100"
+    >
+      {
+        imageList.map((img: any, index: any) => (
+          <figure
+            class={`gallery-image absolute inset-0 w-full h-full transition-opacity duration-300 ${index === 0 ? "opacity-100" : "opacity-0"}`}
+            data-index={index}
+          >
+            <Image
+              src={img}
+              alt={`${title} - imagen ${index + 1}`}
+              class="w-full h-full object-cover"
+            />
+          </figure>
+        ))
+      }
+    </div>
+
+    <div
+      class="controls absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between px-4 pointer-events-none"
+    >
+      <button
+        class="arrow-btn prev w-10 h-10 rounded-full bg-white border-none cursor-pointer flex items-center justify-center shadow-md hover:shadow-lg transition-shadow pointer-events-auto"
+        aria-label="Imagen anterior"
+      >
+        <Image src={arrowLeft} alt="Anterior" class="w-5 h-5" />
+      </button>
+      <button
+        class="arrow-btn next w-10 h-10 rounded-full bg-white border-none cursor-pointer flex items-center justify-center shadow-md hover:shadow-lg transition-shadow pointer-events-auto"
+        aria-label="Imagen siguiente"
+      >
+        <Image src={arrowRight} alt="Siguiente" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <div class="pagination-dots flex justify-center gap-2 py-4">
+      {
+        imageList.map((_: any, index: any) => (
+          <button
+            class={`dot w-2 h-2 rounded-full transition-all ${index === 0 ? "bg-blue-600 w-6" : "bg-gray-300"}`}
+            data-index={index}
+            aria-label={`Ir a imagen ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Grid Desktop -->
+  <div class="hidden lg:grid lg:grid-cols-4 lg:gap-4 lg:p-10">
+    {
+      imageList.map((img: any, index: any) => (
+        <figure class="w-full aspect-4/3 overflow-hidden rounded-lg shadow-md">
+          <Image
+            src={img}
+            alt={`${title} - imagen ${index + 1}`}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </figure>
+      ))
+    }
+  </div>
+
+  <div class="info flex flex-col gap-3 px-6 pb-6 lg:px-0">
+    <h3
+      class="text-center text-2xl font-bold text-gray-900 lg:text-start px-10"
+    >
+      {title}
+    </h3>
+    <p
+      class="text-center text-base font-medium text-gray-600 lg:text-start px-10"
+    >
+      {description}
+    </p>
+  </div>
+</div>
+
+<script>
+  function initCarousel() {
+    const galleryCards = document.querySelectorAll(".gallery-card");
+
+    galleryCards.forEach((card) => {
+      const images = card.querySelectorAll(".gallery-image");
+      const dots = card.querySelectorAll(".dot");
+      const prevBtn = card.querySelector(".prev");
+      const nextBtn = card.querySelector(".next");
+      let currentIndex = 0;
+
+      function showImage(index: any) {
+        images.forEach((img, i) => {
+          if (i === index) {
+            img.classList.remove("opacity-0");
+            img.classList.add("opacity-100");
+          } else {
+            img.classList.remove("opacity-100");
+            img.classList.add("opacity-0");
+          }
+        });
+
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.remove("bg-gray-300", "w-2");
+            dot.classList.add("bg-blue-600", "w-6");
+          } else {
+            dot.classList.remove("bg-blue-600", "w-6");
+            dot.classList.add("bg-gray-300", "w-2");
+          }
+        });
+
+        currentIndex = index;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          const newIndex =
+            currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+          showImage(newIndex);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          const newIndex =
+            currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+          showImage(newIndex);
+        });
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showImage(index);
+        });
+      });
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCarousel);
+  } else {
+    initCarousel();
+  }
+
+  // Para compatibilidad con Astro View Transitions
+  document.addEventListener("astro:page-load", initCarousel);
+</script>
