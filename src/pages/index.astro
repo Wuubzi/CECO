@@ -15,6 +15,8 @@ import KRadio from "../assets/k-radio.png";
 import askCardsContent from "../data/askCardsContent.js";
 import exploreMoreContent from "../data/exploreMoreContent";
 import ExploreMoreCards from "../components/exploreMoreCards.astro";
+import WhatsCard from "../components/whatsCard.astro";
+const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más información"`;
 ---
 
 <Layout>
@@ -22,13 +24,13 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
   <Navbar />
 
   <!-- Hero Section -->
-  <section class="p-5 opacity-0 animate-fade-in">
+  <section class="p-5">
     <!-- Principal Container -->
     <div
       class="flex flex-col items-center justify-center gap-5 lg:flex-row mb-10 lg:gap-20 max-w-7xl mx-auto"
     >
       <!-- Image Hero -->
-      <figure class="scroll-reveal lg:w-1/2">
+      <figure class="hero-image lg:w-1/2">
         <Image
           src={heroImage}
           alt="Hero Image"
@@ -37,7 +39,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
       </figure>
       <!-- Text Container -->
       <div
-        class="flex flex-col items-center justify-center text-center mt-6 gap-5 lg:w-1/2 lg:p-10 lg:items-start scroll-reveal"
+        class="flex flex-col items-center justify-center text-center mt-6 gap-5 lg:w-1/2 lg:p-10 lg:items-start hero-text"
       >
         <!-- "Header of Title" -->
         <div class="w-full">
@@ -74,10 +76,10 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
             class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
           >
             <p
-              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter tabular-nums"
               data-target="3500"
             >
-              0
+              0+
             </p>
             <p class="text-xl text-[#262626] font-medium">Estudiantes</p>
             <div class="mt-5 w-[70%] mx-auto h-1 bg-[#262626] lg:hidden"></div>
@@ -86,10 +88,10 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
             class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
           >
             <p
-              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter tabular-nums"
               data-target="50"
             >
-              0
+              0+
             </p>
             <p class="text-xl text-[#262626] font-medium">
               Docentes Capacitados
@@ -100,10 +102,10 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
             class="text-center p-7 lg:flex-1 hover:scale-105 transition-transform duration-300"
           >
             <p
-              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter"
+              class="text-4xl font-extrabold text-[#262626] xl:text-5xl counter tabular-nums"
               data-target="15"
             >
-              0
+              0+
             </p>
             <p class="text-xl text-[#262626] font-medium">
               Años de Experiencia
@@ -278,7 +280,10 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
         </p>
         <button
           class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >Empieza tu Preparación</button
+        >
+          <a href={whatsappUrl} target="_blank">
+            Empieza tu Preparación
+          </a></button
         >
       </div>
     </div>
@@ -345,8 +350,9 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
         </p>
         <button
           class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >Vibra Con K-Radio</button
         >
+          <a href="https://kradio.co/" target="_blank"> Vibra Con K-Radio</a>
+        </button>
       </div>
       <figure class="md:w-1/2 scroll-reveal">
         <Image
@@ -402,6 +408,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
 
   <!-- Footer Components -->
   <Footer />
+  <WhatsCard />
 </Layout>
 
 <script>
@@ -434,10 +441,10 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
     const updateCounter = () => {
       current += increment;
       if (current < target) {
-        element.textContent = Math.floor(current).toString();
+        element.textContent = Math.floor(current).toString() + "+";
         requestAnimationFrame(updateCounter);
       } else {
-        element.textContent = target.toString() + (target === 3500 ? "+" : "+");
+        element.textContent = target.toString() + "+";
       }
     };
 
@@ -604,23 +611,60 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
 </script>
 
 <style>
-  /* Animación de fade-in para el hero */
-  @keyframes fadeIn {
+  /* Animación suave para el hero completo */
+  section:first-of-type {
+    animation: heroFadeIn 1s ease-out forwards;
+  }
+
+  @keyframes heroFadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
 
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
+  /* Animación de la imagen del hero */
+  .hero-image {
+    opacity: 0;
+    animation: slideInLeft 1.2s ease-out 0.3s forwards;
   }
 
-  /* Animación de expansión para la línea */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animación del texto del hero */
+  .hero-text {
+    opacity: 0;
+    animation: slideInRight 1.2s ease-out 0.5s forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animación de expansión para la línea - sincronizada */
+  .animate-expand {
+    width: 0;
+    animation: expand 1s ease-out 1s forwards;
+  }
+
   @keyframes expand {
     from {
       width: 0;
@@ -641,12 +685,7 @@ import ExploreMoreCards from "../components/exploreMoreCards.astro";
     }
   }
 
-  .animate-expand {
-    animation: expand 1s ease-out 0.5s forwards;
-    width: 0;
-  }
-
-  /* Animaciones de scroll reveal */
+  /* Animaciones de scroll reveal para las demás secciones */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(50px);

@@ -10,7 +10,7 @@ const contactCardsContent = [
     }, 
     {
         icon: phone,
-        text: "53114813"
+        text: "3103159493"
     },
     {
         icon: direction,
