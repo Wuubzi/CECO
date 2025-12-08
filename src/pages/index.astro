@@ -117,7 +117,7 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
   </section>
 
   <!-- Fortalezas Section -->
-  <section class="p-5 scroll-reveal">
+  <section id="caracteristicas" class="p-5 scroll-reveal">
     <div
       class="flex flex-col items-center justify-center gap-5 mb-10 lg:gap-8 max-w-7xl mx-auto"
     >
@@ -160,7 +160,7 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
   </section>
 
   <!-- Voice of Success -->
-  <section class="p-5 scroll-reveal">
+  <section id="testimonios" class="p-5 scroll-reveal">
     <!-- Principal Container -->
     <div
       class="flex flex-col text-center items-center justify-center gap-5 mb-10 max-w-7xl mx-auto"
@@ -290,7 +290,7 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
   </section>
 
   <!-- Ask frecuently -->
-  <section class="p-5 scroll-reveal">
+  <section id="faq" class="p-5 scroll-reveal">
     <!-- Principal Container -->
     <div
       class="flex flex-col gap-3 justify-center items-center max-w-7xl mx-auto"
@@ -351,7 +351,7 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
         <button
           class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
         >
-          <a href="https://kradio.co/" target="_blank"> Vibra Con K Radio.co</a>
+          <a href="https://kradio.co/" target="_blank"> Vibra Con KRadio.co</a>
         </button>
       </div>
       <figure class="md:w-1/2 scroll-reveal">
@@ -398,6 +398,7 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
                 description={card.description}
                 button={card.button}
                 color={card.color}
+                link={card.link}
               />
             </div>
           ))

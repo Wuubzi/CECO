@@ -7,18 +7,18 @@ import abstract from "../assets/abstract.svg";
 import Footer from "../components/Footer.astro";
 import contactCardsContent from "../data/contactCardsContent.js";
 import ContactCards from "../components/contactCards.astro";
+import WhatsCard from "../components/whatsCard.astro";
 ---
 
 <Layout>
   <Navbar />
 
   <!-- Hero Contact Section -->
-  <section class="p-5 opacity-0 animate-fade-in">
+  <section id="informacion" class="p-5 opacity-0 animate-fade-in">
     <div class="max-w-7xl mx-auto">
       <div
         class="border-2 border-black rounded-xl p-8 w-full flex flex-col gap-4 relative lg:flex-row lg:p-12 lg:gap-8 hover:shadow-2xl transition-all duration-300"
       >
-        <!-- Abstract decorativo -->
         <figure class="absolute top-0 left-0 animate-float">
           <Image
             src={abstract}
@@ -27,7 +27,6 @@ import ContactCards from "../components/contactCards.astro";
           />
         </figure>
 
-        <!-- Contenido izquierdo (título y badge) -->
         <div
           class="flex flex-col gap-4 pt-12 lg:pt-0 lg:min-w-[280px] lg:max-w-[320px] lg:pl-8 scroll-reveal"
         >
@@ -39,7 +38,6 @@ import ContactCards from "../components/contactCards.astro";
           </h2>
         </div>
 
-        <!-- Contenido derecho (descripción) -->
         <div
           class="lg:flex-1 lg:flex lg:items-center lg:pl-8 lg:border-l-2 lg:border-gray-200 scroll-reveal"
           style="animation-delay: 200ms"
@@ -74,6 +72,7 @@ import ContactCards from "../components/contactCards.astro";
 
   <!-- Form Section -->
   <section
+    id="formulario"
     class="p-5 lg:p-10 flex flex-col gap-5 items-center justify-center scroll-reveal"
   >
     <div class="max-w-7xl mx-auto w-full flex flex-col gap-5 items-center">
@@ -90,15 +89,51 @@ import ContactCards from "../components/contactCards.astro";
         detalles para entender mejor tus necesidades.
       </p>
 
+      <!-- Mensaje de estado -->
+      <div
+        id="form-message"
+        class="hidden w-full text-center p-4 rounded-lg font-semibold text-lg"
+      >
+      </div>
+
       <!-- Form Container -->
       <div
         class="p-8 lg:p-10 border-[#262626] border-2 rounded-xl w-full hover:shadow-2xl transition-all duration-300 scroll-reveal"
         style="animation-delay: 200ms"
       >
         <form
-          action=""
+          id="contact-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
           class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8"
         >
+          <!-- Access Key de Web3Forms - REEMPLAZAR CON TU KEY -->
+          <input
+            type="hidden"
+            name="access_key"
+            value="e7b95396-331d-4be9-b4f1-758a35f9ff33"
+          />
+
+          <!-- Configuración adicional -->
+          <input
+            type="hidden"
+            name="subject"
+            value="Nuevo contacto - Validación Bachillerato"
+          />
+          <input
+            type="hidden"
+            name="from_name"
+            value="Colegio de Educación por Ciclos"
+          />
+
+          <!-- Honeypot anti-spam -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+          />
+
           <div
             class="flex flex-col gap-3 scroll-reveal"
             style="animation-delay: 300ms"
@@ -111,7 +146,7 @@ import ContactCards from "../components/contactCards.astro";
             </label>
             <input
               id="nombre-interesado"
-              name="nombre-interesado"
+              name="nombre_interesado"
               class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
               type="text"
               placeholder="Ingresa tu Nombre Completo"
@@ -131,7 +166,7 @@ import ContactCards from "../components/contactCards.astro";
             </label>
             <input
               id="correo"
-              name="correo"
+              name="email"
               class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
               type="email"
               placeholder="Ingresa tu Correo Electrónico"
@@ -171,7 +206,7 @@ import ContactCards from "../components/contactCards.astro";
             </label>
             <input
               id="nombre-estudiante"
-              name="nombre-estudiante"
+              name="nombre_estudiante"
               class="border-2 border-[#262626] p-3 rounded-lg font-medium text-[#59595A] bg-[#FFFCFA] lg:p-4 focus:border-[#8CC63F] focus:ring-2 focus:ring-[#8CC63F] focus:outline-none transition-all duration-300 hover:shadow-md"
               type="text"
               placeholder="Ingresa el nombre de la persona que va a estudiar"
@@ -245,11 +280,13 @@ import ContactCards from "../components/contactCards.astro";
           </div>
 
           <button
-            class="bg-[#8CC63F] p-4 flex items-center justify-center text-xl lg:text-2xl text-[#262626] font-bold w-full rounded-xl hover:bg-[#7AB52F] hover:scale-105 transition-all duration-300 lg:col-span-2 cursor-pointer shadow-lg hover:shadow-xl scroll-reveal"
+            id="submit-btn"
+            class="bg-[#8CC63F] p-4 flex items-center justify-center text-xl lg:text-2xl text-[#262626] font-bold w-full rounded-xl hover:bg-[#7AB52F] hover:scale-105 transition-all duration-300 lg:col-span-2 cursor-pointer shadow-lg hover:shadow-xl scroll-reveal disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             style="animation-delay: 650ms"
             type="submit"
           >
-            Enviar Solicitud
+            <span id="btn-text">Enviar Solicitud</span>
+            <span id="btn-loading" class="hidden">Enviando...</span>
           </button>
         </form>
       </div>
@@ -257,6 +294,7 @@ import ContactCards from "../components/contactCards.astro";
   </section>
 
   <Footer />
+  <WhatsCard />
 </Layout>
 
 <script>
@@ -274,14 +312,81 @@ import ContactCards from "../components/contactCards.astro";
     });
   }, observerOptions);
 
-  // Observar todos los elementos con la clase scroll-reveal
   document.querySelectorAll(".scroll-reveal").forEach((el) => {
     observer.observe(el);
+  });
+
+  // Manejo del formulario con Web3Forms
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const formMessage = document.getElementById("form-message") as HTMLDivElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnText = document.getElementById("btn-text") as HTMLSpanElement;
+  const btnLoading = document.getElementById("btn-loading") as HTMLSpanElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Mostrar estado de carga
+    btnText.classList.add("hidden");
+    btnLoading.classList.remove("hidden");
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Mostrar mensaje de éxito
+        formMessage.textContent =
+          "¡Mensaje enviado exitosamente! Te contactaremos pronto. 🎉";
+        formMessage.className =
+          "w-full text-center p-4 rounded-lg font-semibold text-lg bg-green-100 border-2 border-green-500 text-green-700";
+        formMessage.classList.remove("hidden");
+
+        // Limpiar el formulario
+        form.reset();
+
+        // Scroll al mensaje de éxito
+        formMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        throw new Error(result.message || "Error al enviar el formulario");
+      }
+    } catch (error) {
+      // Mostrar mensaje de error
+      formMessage.textContent =
+        "Hubo un error al enviar el mensaje. Por favor intenta nuevamente o contáctanos directamente.";
+      formMessage.className =
+        "w-full text-center p-4 rounded-lg font-semibold text-lg bg-red-100 border-2 border-red-500 text-red-700";
+      formMessage.classList.remove("hidden");
+
+      console.error("Error:", error);
+    } finally {
+      // Restaurar el botón
+      btnText.classList.remove("hidden");
+      btnLoading.classList.add("hidden");
+      submitBtn.disabled = false;
+
+      // Ocultar mensaje después de 8 segundos
+      setTimeout(() => {
+        formMessage.classList.add("hidden");
+      }, 8000);
+    }
   });
 </script>
 
 <style>
-  /* Animación de fade-in para el hero */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -297,7 +402,6 @@ import ContactCards from "../components/contactCards.astro";
     animation: fadeIn 1s ease-out forwards;
   }
 
-  /* Animación de flotación para el icono abstract */
   @keyframes float {
     0%,
     100% {
@@ -312,7 +416,6 @@ import ContactCards from "../components/contactCards.astro";
     animation: float 3s ease-in-out infinite;
   }
 
-  /* Animaciones de scroll reveal */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -326,12 +429,10 @@ import ContactCards from "../components/contactCards.astro";
     transform: translateY(0);
   }
 
-  /* Smooth scroll para toda la página */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Mejorar la apariencia de los selects */
   select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23262626' d='M6 9L1 4h10z'/%3E%3C/svg%3E");

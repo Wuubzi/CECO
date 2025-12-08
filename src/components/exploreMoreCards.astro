@@ -1,5 +1,5 @@
 ---
-const { title, description, button, color } = Astro.props;
+const { title, description, button, color, link } = Astro.props;
 ---
 
 <div
@@ -9,6 +9,9 @@ const { title, description, button, color } = Astro.props;
   <p class="text-[#4C4C4D] text-center">{description}</p>
   <button
     class={`bg-[${color}] w-max rounded-xl h-max p-4 text-[#333333] font-medium cursor-pointer`}
-    >{button}
+  >
+    <a href={link}>
+      {button}
+    </a>
   </button>
 </div>

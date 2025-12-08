@@ -10,6 +10,7 @@ import MateriaCards from "../components/materiaCards.astro";
 import materiasCardsContent from "../data/materiasCardsContent";
 import galleryCardsContent from "../data/galleryCardsContent";
 import GaleryCards from "../components/galeryCards.astro";
+import WhatsCard from "../components/whatsCard.astro";
 ---
 
 <Layout>
@@ -27,7 +28,7 @@ import GaleryCards from "../components/galeryCards.astro";
   </section>
 
   <!-- Diferencias Section -->
-  <section class="p-5 flex flex-col gap-5 scroll-reveal">
+  <section id="diferente" class="p-5 flex flex-col gap-5 scroll-reveal">
     <div class="max-w-7xl mx-auto w-full">
       <HeadersSection text="Nuestros pilares" />
       <h2 class="font-bold text-3xl lg:text-4xl xl:text-5xl text-center mt-5">
@@ -64,7 +65,7 @@ import GaleryCards from "../components/galeryCards.astro";
   </section>
 
   <!-- Contenidos Section -->
-  <section class="p-5 flex flex-col gap-5 scroll-reveal">
+  <section id="contenido" class="p-5 flex flex-col gap-5 scroll-reveal">
     <div class="max-w-7xl mx-auto w-full">
       <HeadersSection text="Contenido" />
       <h2 class="font-bold text-3xl lg:text-4xl xl:text-5xl text-center mt-5">
@@ -104,7 +105,7 @@ import GaleryCards from "../components/galeryCards.astro";
   </section>
 
   <!-- Gallery -->
-  <section class="p-5 flex flex-col gap-5 scroll-reveal">
+  <section id="instalaciones" class="p-5 flex flex-col gap-5 scroll-reveal">
     <div class="max-w-7xl mx-auto w-full">
       <HeadersSection text="Galería" />
       <h2 class="font-bold text-3xl lg:text-4xl xl:text-5xl text-center mt-5">
@@ -134,6 +135,7 @@ import GaleryCards from "../components/galeryCards.astro";
   </section>
 
   <Footer />
+  <WhatsCard />
 </Layout>
 
 <script>

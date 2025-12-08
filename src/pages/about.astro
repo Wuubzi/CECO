@@ -12,6 +12,7 @@ import awardsCardsContent from "../data/awardsCardsContent.js";
 import HistoryCard from "../components/HistoryCard.astro";
 import teamCardsContent from "../data/teamCardsContent";
 import TeamCards from "../components/TeamCards.astro";
+import WhatsCard from "../components/whatsCard.astro";
 ---
 
 <Layout>
@@ -29,7 +30,7 @@ import TeamCards from "../components/TeamCards.astro";
   </section>
 
   <!-- Mission & Vision Section -->
-  <section class="p-5 flex flex-col gap-5 scroll-reveal">
+  <section id="mision" class="p-5 flex flex-col gap-5 scroll-reveal">
     <div class="max-w-7xl mx-auto w-full">
       <HeadersSection text="Mision & Vision" />
       <h2 class="text-center font-bold text-3xl lg:text-4xl xl:text-5xl mt-5">
@@ -109,6 +110,7 @@ import TeamCards from "../components/TeamCards.astro";
 
   <!-- Awards Section -->
   <section
+    id="logros"
     class="p-5 flex flex-col gap-10 justify-center items-center scroll-reveal"
   >
     <div class="max-w-7xl mx-auto w-full flex flex-col gap-10 items-center">
@@ -145,7 +147,7 @@ import TeamCards from "../components/TeamCards.astro";
   </section>
 
   <!-- Our History Section -->
-  <section class="p-5 scroll-reveal">
+  <section id="historia" class="p-5 scroll-reveal">
     <div class="max-w-7xl mx-auto">
       <!-- Principal Container -->
       <div class="flex flex-col gap-5 justify-center items-center">
@@ -267,7 +269,7 @@ import TeamCards from "../components/TeamCards.astro";
   </section>
 
   <!-- Our Team -->
-  <section class="p-5 flex flex-col gap-5 scroll-reveal">
+  <section id="docentes" class="p-5 flex flex-col gap-5 scroll-reveal">
     <div class="max-w-7xl mx-auto w-full">
       <HeadersSection text="Nuestros Docentes Expertos" />
       <h2 class="font-bold text-3xl lg:text-4xl xl:text-5xl text-center mt-5">
@@ -308,6 +310,7 @@ import TeamCards from "../components/TeamCards.astro";
   </section>
 
   <Footer />
+  <WhatsCard />
 </Layout>
 
 <script>
