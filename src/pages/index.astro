@@ -159,6 +159,48 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
     </div>
   </section>
 
+  <!-- Pre-ICFES Section -->
+  <section class="p-5 scroll-reveal">
+    <!-- Principal Container -->
+    <div
+      class="flex flex-col text-center items-center justify-center gap-8 lg:flex-row lg:gap-12 max-w-7xl mx-auto"
+    >
+      <figure class="w-full lg:w-1/2 scroll-reveal">
+        <Image
+          src={PreIcfes}
+          alt="Preparación ICFES"
+          class="w-full h-full rounded-2xl hover:scale-105 transition-transform duration-500"
+        />
+      </figure>
+      <!-- Text Container -->
+      <div
+        class="flex flex-col gap-5 justify-center items-center text-center mt-6 lg:text-start lg:justify-start lg:items-start lg:w-1/2 scroll-reveal"
+      >
+        <h2
+          class="text-3xl text-[#1A1A1A] font-extrabold lg:text-5xl xl:text-6xl"
+        >
+          Prepárate para el Icfes: <span class="text-[#00AEEF]"
+            >¡Tu futuro te espera!</span
+          >
+        </h2>
+        <p class="font-medium text-md lg:text-xl xl:text-2xl text-[#333333]">
+          En CECO te ofrecemos una preparación sólida y efectiva para el ICFES,
+          con clases dinámicas y acompañamiento personalizado que fortalecen tus
+          habilidades en cada área. Nuestro objetivo es ayudarte a alcanzar los
+          mejores resultados y abrir nuevas oportunidades para tu futuro
+          académico. ¡Prepárate con CECO y avanza con confianza!
+        </p>
+        <button
+          class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <a href={whatsappUrl} target="_blank">
+            Empieza tu Preparación
+          </a></button
+        >
+      </div>
+    </div>
+  </section>
+
   <!-- Voice of Success -->
   <section id="testimonios" class="p-5 scroll-reveal">
     <!-- Principal Container -->
@@ -244,86 +286,6 @@ const whatsappUrl = `https://wa.me/3103159493?text="Hola, me gustaría más info
 
       <!-- Dots Indicator -->
       <div id="carousel-dots" class="flex gap-2 justify-center mt-4"></div>
-    </div>
-  </section>
-
-  <!-- Pre-ICFES Section -->
-  <section class="p-5 scroll-reveal">
-    <!-- Principal Container -->
-    <div
-      class="flex flex-col text-center items-center justify-center gap-8 lg:flex-row lg:gap-12 max-w-7xl mx-auto"
-    >
-      <figure class="w-full lg:w-1/2 scroll-reveal">
-        <Image
-          src={PreIcfes}
-          alt="Preparación ICFES"
-          class="w-full h-full rounded-2xl hover:scale-105 transition-transform duration-500"
-        />
-      </figure>
-      <!-- Text Container -->
-      <div
-        class="flex flex-col gap-5 justify-center items-center text-center mt-6 lg:text-start lg:justify-start lg:items-start lg:w-1/2 scroll-reveal"
-      >
-        <h2
-          class="text-3xl text-[#1A1A1A] font-extrabold lg:text-5xl xl:text-6xl"
-        >
-          Prepárate para el Icfes: <span class="text-[#00AEEF]"
-            >¡Tu futuro te espera!</span
-          >
-        </h2>
-        <p class="font-medium text-md lg:text-xl xl:text-2xl text-[#333333]">
-          En CECO te ofrecemos una preparación sólida y efectiva para el ICFES,
-          con clases dinámicas y acompañamiento personalizado que fortalecen tus
-          habilidades en cada área. Nuestro objetivo es ayudarte a alcanzar los
-          mejores resultados y abrir nuevas oportunidades para tu futuro
-          académico. ¡Prepárate con CECO y avanza con confianza!
-        </p>
-        <button
-          class="p-4 px-8 rounded-2xl bg-[#8CC63F] text-[#262626] font-bold text-xl w-max hover:bg-[#7AB62F] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          <a href={whatsappUrl} target="_blank">
-            Empieza tu Preparación
-          </a></button
-        >
-      </div>
-    </div>
-  </section>
-
-  <!-- Ask frecuently -->
-  <section id="faq" class="p-5 scroll-reveal">
-    <!-- Principal Container -->
-    <div
-      class="flex flex-col gap-3 justify-center items-center max-w-7xl mx-auto"
-    >
-      <HeadersSection text="Respuestas Esenciales para el Éxito" />
-      <!-- Text Container -->
-      <div class="flex flex-col gap-4 justify-center items-center text-center">
-        <h2 class="text-[#1A1A1A] font-bold text-4xl lg:text-5xl xl:text-6xl">
-          Preguntas Frecuentes
-        </h2>
-        <p
-          class="font-medium text-lg text-[#333333] lg:text-xl xl:text-2xl lg:w-[70%] xl:w-[65%]"
-        >
-          Encuentra toda la información esencial que necesitas en nuestra
-          sección de Preguntas Frecuentes (FAQ), diseñada para guiarte en tu
-          proceso de toma de decisiones educativas.
-        </p>
-      </div>
-      <!-- Ask Cards Container -->
-      <div
-        class="flex flex-col gap-5 mt-10 w-full lg:grid lg:grid-cols-2 lg:gap-7"
-      >
-        {
-          askCardsContent.map((card, index) => (
-            <div
-              class="scroll-reveal"
-              style={`animation-delay: ${index * 100}ms`}
-            >
-              <AskCards ask={card.question} answer={card.answer} />
-            </div>
-          ))
-        }
-      </div>
     </div>
   </section>
 
